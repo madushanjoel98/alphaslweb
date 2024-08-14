@@ -4,6 +4,7 @@ $(document).ready(function () {
     $("#contentDiv").load("headinc.html");
     $("#navs").load("navbar.html");
     setDefaults(); sessionStorage.setItem("lastname", "Smith");
+    checkCountry();
 });
 function addTOBusket() {
     var getValue = $("#op").val();
@@ -44,3 +45,19 @@ function setDefaults() {
 
 }
 
+
+function checkCountry() {
+    var requestUrl = "http://ip-api.com/json";
+
+    $.ajax({
+        type: "get",
+        url: requestUrl,
+        success: function (response) {
+            if(response.countryCode != "LK"){
+                 //bodyc
+                 $("#bodyc").load("/views/notavilable.html");
+               }  
+        }
+    });
+
+}

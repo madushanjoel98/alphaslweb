@@ -9,3 +9,5 @@ function loadHomePage() {
     $("#contentDiv").load("views/products.html");
     
   }
+
+  
